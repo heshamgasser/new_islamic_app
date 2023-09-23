@@ -39,31 +39,34 @@ class _SurahScreenState extends State<SurahScreen> {
                   color: Theme.of(context).primaryColor,
                 ),
               )
-            : ListView.builder(
-                itemBuilder: (context, index) {
-                  return RichText(
-                    textDirection: TextDirection.rtl,
-                    textAlign: verses.length <= 20
-                        ? TextAlign.center
-                        : TextAlign.justify,
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: verses[index],
-                          style: Theme.of(context).textTheme.displaySmall,
-                        ),
-                        TextSpan(
-                          text: '\u06dd${index + 1}',
-                          style: GoogleFonts.amiri(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 25.sp),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                itemCount: verses.length,
-              ),
+            : Padding(
+              padding:  EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+              child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return RichText(
+                      textDirection: TextDirection.rtl,
+                      textAlign: verses.length <= 20
+                          ? TextAlign.center
+                          : TextAlign.justify,
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: verses[index],
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          TextSpan(
+                            text: '\u06dd${index + 1}',
+                            style: GoogleFonts.amiri(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 25.sp),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: verses.length,
+                ),
+            ),
       ),
     );
   }
