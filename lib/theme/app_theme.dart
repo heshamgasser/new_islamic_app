@@ -28,6 +28,8 @@ class AppTheme {
         labelSmall: GoogleFonts.reemKufi(fontSize: 12.sp, color: Colors.black),
       displayMedium: GoogleFonts.notoKufiArabic(
           fontSize: 20.sp, fontWeight: FontWeight.bold, color: Colors.white),
+      displaySmall: GoogleFonts.notoKufiArabic(
+          fontSize: 20.sp, fontWeight: FontWeight.normal, color: Colors.black),
 
     ),
 
