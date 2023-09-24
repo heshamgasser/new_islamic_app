@@ -38,17 +38,31 @@ class HadethScreen extends StatelessWidget {
                       endIndent: 30.w,
                     ),
                     Expanded(
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          return Text(
-                            args.content[index],
+                      child: ListView(
+                        children: [
+                          Text(
+                            args.content,
                             style: Theme.of(context).textTheme.displaySmall,
                             textDirection: TextDirection.rtl,
-                          );
-                        },
-                        itemCount: args.content.length,
+                          ),
+                        ],
                       ),
                     ),
+                    
+                   
+
+                    // Expanded(
+                    //   child: ListView.builder(
+                    //     itemBuilder: (context, index) {
+                    //       return Text(
+                    //         args.content,
+                    //         style: Theme.of(context).textTheme.displaySmall,
+                    //         textDirection: TextDirection.rtl,
+                    //       );
+                    //     },
+                    //     itemCount: args.content.length,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

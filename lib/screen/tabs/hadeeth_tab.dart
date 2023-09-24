@@ -74,16 +74,27 @@ class _HadeethTabState extends State<HadeethTab> {
   void loadHadethFile() {
     rootBundle.loadString('assets/files/ahadeth .txt').then((value) {
       List<String> allAhadeth = value.trim().split('#');
-      for (int i = 0; i < allAhadeth.length; i++) {
-        List<String> hadethLines = allAhadeth[i].trim().split('\n');
-        String title = hadethLines[0];
-        hadethLines.removeAt(0);
-        List<String> content = hadethLines;
-
+      for (int i = 0; i < allAhadeth.length; i++){
+        int lastIndexOfFirstLine = allAhadeth[i].trim().indexOf('\n');
+        String title = allAhadeth[i].trim().substring(0,lastIndexOfFirstLine);
+        String content = allAhadeth[i].trim().substring(lastIndexOfFirstLine+1);
         HadethModel hadethModel = HadethModel(title, content);
         ahadeth.add(hadethModel);
         setState(() {});
       }
-    }).catchError((error) {});
-  }
+
+
+
+
+      // for (int i = 0; i < allAhadeth.length; i++) {
+      //   List<String> hadethLines = allAhadeth[i].trim().split('\n');
+      //   String title = hadethLines[0];
+      //   hadethLines.removeAt(0);
+      //   List<String> content = hadethLines;
+      //   HadethModel hadethModel = HadethModel(title, content);
+      //       ahadeth.add(hadethModel);
+      //       setState(() {});
+      //     }
+        }).catchError((error) {});
+      }
 }
