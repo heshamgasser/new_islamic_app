@@ -18,6 +18,7 @@ class SettingTab extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             SettingBodyWidget(
+              header: 'Language',
               text: 'English',
               optionOne: 'English',
               optionTwo: 'Arabic',
@@ -28,6 +29,7 @@ class SettingTab extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             SettingBodyWidget(
+              header: 'Theme',
               text: 'Light Theme',
               optionOne: 'Light Theme',
               optionTwo: 'Dark Theme',
