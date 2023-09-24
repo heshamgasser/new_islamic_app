@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islamic/app_text_file/app_text_files.dart';
 import 'package:islamic/models/surah_arrgument.dart';
-import 'package:islamic/screen/surah_screen.dart';
+import 'package:islamic/screen/views/surah_screen.dart';
 import 'package:islamic/widgets/table_header.dart';
 
 class QuraanTab extends StatelessWidget {

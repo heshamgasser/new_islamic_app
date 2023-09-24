@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamic/models/hadeth_model.dart';
-import 'package:islamic/screen/hadeth_screen.dart';
+import 'package:islamic/screen/views/hadeth_screen.dart';
 
 class HadeethTab extends StatefulWidget {
   @override

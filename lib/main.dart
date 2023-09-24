@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islamic/screen/hadeth_screen.dart';
+import 'package:islamic/screen/views/hadeth_screen.dart';
 import 'package:islamic/screen/home_screen.dart';
-import 'package:islamic/screen/surah_screen.dart';
-import 'package:islamic/theme/app_theme.dart';
+import 'package:islamic/screen/views/surah_screen.dart';
+import 'package:islamic/style/app_theme.dart';
+
 
 void main() {
   runApp(Islamic());
