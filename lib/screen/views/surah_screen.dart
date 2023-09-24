@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic/models/surah_arrgument.dart';
+import 'package:islamic/style/app_colors.dart';
 
 class SurahScreen extends StatefulWidget {
   static const String routeName = 'Surah Detail';
@@ -24,7 +25,7 @@ class _SurahScreenState extends State<SurahScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/image/background.png'), fit: BoxFit.fill),
+            image: AssetImage(ThemeMode.light ==true ? 'assets/image/background.png' : 'assets/image/dark_bg.png'), fit: BoxFit.fill),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -46,15 +47,15 @@ class _SurahScreenState extends State<SurahScreen> {
                     children: [
                       Text(
                         'سورة ${argument.surahName}',
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: Theme.of(context).textTheme.labelLarge,
                       ),
                       SizedBox(width: 30.w),
                       IconButton(onPressed: () {
 
-                      }, icon: Icon(Icons.play_circle, color: Colors.black, size: 30.r,),),
+                      }, icon: Icon(Icons.play_circle, color: ThemeMode.light == true ? Colors.black : AppColors.yellowColor, size: 30.r,),),
                     ],
                   ),
-                  Divider(thickness: 3, color: Theme.of(context).primaryColor,indent: 30.w, endIndent: 30.w,),
+                  Divider(thickness: 3,indent: 30.w, endIndent: 30.w,),
 
                   Expanded(
                     child: ListView.builder(
@@ -73,7 +74,7 @@ class _SurahScreenState extends State<SurahScreen> {
                                 TextSpan(
                                   text: '\u06dd${index + 1}',
                                   style: GoogleFonts.amiri(
-                                      color: Theme.of(context).primaryColor,
+                                      color: Theme.of(context).secondaryHeaderColor,
                                       fontSize: 25.sp),
                                 ),
                               ],

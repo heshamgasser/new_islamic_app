@@ -75,7 +75,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 width: 69.w,
                 height: 81.h,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).secondaryHeaderColor,
                   borderRadius: BorderRadius.circular(25.r),
                 ),
                 child: Center(
@@ -92,7 +92,7 @@ class _SebhaTabState extends State<SebhaTab> {
             Container(
               height: 65.h,
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).secondaryHeaderColor,
                 borderRadius: BorderRadius.circular(25.r),
               ),
               child: Center(
@@ -111,7 +111,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).primaryColor,
+                      backgroundColor: Colors.blueAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.r),
                       ),
@@ -147,7 +147,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orangeAccent,
+                      backgroundColor: Colors.purpleAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.r),
                       ),

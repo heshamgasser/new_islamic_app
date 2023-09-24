@@ -18,8 +18,8 @@ class QuraanTab extends StatelessWidget {
             height: 227.h,
             child: Image.asset('assets/image/quran_image.png')),
         Divider(
-          color: Theme.of(context).primaryColor,
-          thickness: 3,
+
+
         ),
         Row(
           children: [
@@ -29,16 +29,14 @@ class QuraanTab extends StatelessWidget {
               child: VerticalDivider(
                 indent: 0,
                 endIndent: 0,
-                thickness: 3,
-                color: Theme.of(context).primaryColor,
+
               ),
             ),
             TableHeader('Ayat Number'),
           ],
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
-          thickness: 3,
+
         ),
         Expanded(
           child: ListView.separated(
@@ -76,8 +74,7 @@ class QuraanTab extends StatelessWidget {
               },
               separatorBuilder: (context, index) {
                 return Divider(
-                  color: Theme.of(context).primaryColor,
-                  thickness: 3,
+
                 );
               },
               itemCount: AppTextFiles.surahNames.length),

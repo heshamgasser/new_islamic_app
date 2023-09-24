@@ -23,8 +23,7 @@ class _HadeethTabState extends State<HadeethTab> {
         children: [
           Image.asset('assets/image/hadeeth_image.png'),
           Divider(
-            thickness: 3,
-            color: Theme.of(context).primaryColor,
+
           ),
           Center(
             child: Text(
@@ -33,8 +32,7 @@ class _HadeethTabState extends State<HadeethTab> {
             ),
           ),
           Divider(
-            thickness: 3,
-            color: Theme.of(context).primaryColor,
+
           ),
           Expanded(
             child: ListView.separated(
@@ -53,8 +51,7 @@ class _HadeethTabState extends State<HadeethTab> {
                 },
                 separatorBuilder: (context, index) {
                   return Divider(
-                    color: Theme.of(context).primaryColor,
-                    thickness: 3,
+
                   );
                 },
                 itemCount: ahadeth.length),

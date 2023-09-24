@@ -10,6 +10,7 @@ class AppTheme {
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
     primaryColor: AppColors.lightPrimaryColor,
+    secondaryHeaderColor: AppColors.lightPrimaryColor,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -31,6 +32,11 @@ class AppTheme {
           fontSize: 20.sp, fontWeight: FontWeight.bold, color: Colors.white),
       displaySmall: GoogleFonts.notoKufiArabic(
           fontSize: 20.sp, fontWeight: FontWeight.normal, color: Colors.black),
+      labelLarge: GoogleFonts.elMessiri(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
 
     ),
 
@@ -46,15 +52,70 @@ class AppTheme {
           GoogleFonts.reemKufi(fontSize: 12.sp, color: Colors.white),
     ),
 
-
+    dividerTheme: DividerThemeData(
+        color: AppColors.lightPrimaryColor,
+        thickness: 3
+    ),
 
   );
 
+
+
+
   static ThemeData darkTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.transparent,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    primaryColor: AppColors.darkPrimaryColor,
+    secondaryHeaderColor: AppColors.yellowColor,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
+      iconTheme: IconThemeData(color: Colors.white, size: 25.w),
     ),
+    textTheme: TextTheme(
+      titleLarge: GoogleFonts.elMessiri(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+      titleMedium: GoogleFonts.elMessiri(
+          fontSize: 25.sp, fontWeight: FontWeight.w500, color: Colors.white),
+      displayLarge: GoogleFonts.notoKufiArabic(
+          fontSize: 25.sp, fontWeight: FontWeight.bold, color: Colors.white),
+      labelSmall: GoogleFonts.reemKufi(fontSize: 12.sp, color: AppColors.yellowColor),
+      displayMedium: GoogleFonts.notoKufiArabic(
+          fontSize: 20.sp, fontWeight: FontWeight.bold, color: Colors.white),
+      displaySmall: GoogleFonts.notoKufiArabic(
+          fontSize: 20.sp, fontWeight: FontWeight.normal, color: AppColors.yellowColor),
+      labelLarge: GoogleFonts.elMessiri(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.bold,
+        color: AppColors.yellowColor,
+      ),
+
+    ),
+
+
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.shifting,
+      selectedItemColor: AppColors.yellowColor,
+      selectedLabelStyle:
+      GoogleFonts.reemKufi(fontSize: 12.sp, color: AppColors.yellowColor),
+      unselectedItemColor: Colors.white,
+      unselectedLabelStyle:
+      GoogleFonts.reemKufi(fontSize: 12.sp, color: Colors.white),
+    ),
+
+
+
+    dividerTheme: DividerThemeData(
+      color: AppColors.yellowColor,
+      thickness: 3
+    ),
+
+
   );
 }

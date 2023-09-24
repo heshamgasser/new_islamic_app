@@ -11,7 +11,7 @@ class HadethScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/image/background.png'), fit: BoxFit.fill),
+            image: AssetImage(ThemeMode.light ==true ? 'assets/image/background.png' : 'assets/image/dark_bg.png'), fit: BoxFit.fill),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -29,7 +29,7 @@ class HadethScreen extends StatelessWidget {
                   children: [
                     Text(
                       args.title,
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Divider(
                       thickness: 3,
