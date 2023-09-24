@@ -17,55 +17,49 @@ class _HadeethTabState extends State<HadeethTab> {
       loadHadethFile();
     }
 
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/image/background.png'), fit: BoxFit.fill),
-      ),
-      child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.asset('assets/image/hadeeth_image.png'),
-            Divider(
-              thickness: 3,
-              color: Theme.of(context).primaryColor,
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.asset('assets/image/hadeeth_image.png'),
+          Divider(
+            thickness: 3,
+            color: Theme.of(context).primaryColor,
+          ),
+          Center(
+            child: Text(
+              'Hadeeth',
+              style: Theme.of(context).textTheme.titleMedium,
             ),
-            Center(
-              child: Text(
-                'Hadeeth',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
-            Divider(
-              thickness: 3,
-              color: Theme.of(context).primaryColor,
-            ),
-            Expanded(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, HadethScreen.routeName,
-                            arguments: ahadeth[index]);
-                      },
-                      child: Text(
-                        ahadeth[index].title,
-                        style: Theme.of(context).textTheme.displayLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return Divider(
-                      color: Theme.of(context).primaryColor,
-                      thickness: 3,
-                    );
-                  },
-                  itemCount: ahadeth.length),
-            ),
-          ],
-        ),
+          ),
+          Divider(
+            thickness: 3,
+            color: Theme.of(context).primaryColor,
+          ),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, HadethScreen.routeName,
+                          arguments: ahadeth[index]);
+                    },
+                    child: Text(
+                      ahadeth[index].title,
+                      style: Theme.of(context).textTheme.displayLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return Divider(
+                    color: Theme.of(context).primaryColor,
+                    thickness: 3,
+                  );
+                },
+                itemCount: ahadeth.length),
+          ),
+        ],
       ),
     );
   }
