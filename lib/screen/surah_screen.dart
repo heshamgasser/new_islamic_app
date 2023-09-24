@@ -92,7 +92,7 @@ class _SurahScreenState extends State<SurahScreen> {
 
   Future<void> loadFile(int index) async {
     String surah =
-        await rootBundle.loadString('assets/files/surah/${index + 1}.txt');
+        await rootBundle.loadString('assets/files/${index + 1}.txt');
     List<String> lines = surah.split('\n');
     verses = lines;
     setState(() {});
