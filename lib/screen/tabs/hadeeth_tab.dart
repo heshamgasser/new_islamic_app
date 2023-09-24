@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamic/models/hadeth_model.dart';
+import 'package:islamic/screen/hadeth_screen.dart';
 
 class HadeethTab extends StatefulWidget {
   @override
@@ -43,10 +44,17 @@ class _HadeethTabState extends State<HadeethTab> {
             Expanded(
               child: ListView.separated(
                   itemBuilder: (context, index) {
-                    return Text(
-                      ahadeth[index].title,
-                      style: Theme.of(context).textTheme.displayLarge,
-                      textAlign: TextAlign.center,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, HadethScreen.routeName,
+                            arguments: HadethModel(
+                                ahadeth[index].title, ahadeth[index].content),);
+                      },
+                      child: Text(
+                        ahadeth[index].title,
+                        style: Theme.of(context).textTheme.displayLarge,
+                        textAlign: TextAlign.center,
+                      ),
                     );
                   },
                   separatorBuilder: (context, index) {
@@ -63,24 +71,19 @@ class _HadeethTabState extends State<HadeethTab> {
     );
   }
 
- void loadHadethFile (){
-    rootBundle.loadString('assets/files/ahadeth .txt').then((value){
-      List<String> allAhadeth =  value.trim().split('#');
-      for (int i = 0; i < allAhadeth.length; i++){
-       List<String> hadethLines =  allAhadeth[i].trim().split('\n');
-       String title = hadethLines[0];
-       hadethLines.removeAt(0);
-       List<String> content = hadethLines;
+  void loadHadethFile() {
+    rootBundle.loadString('assets/files/ahadeth .txt').then((value) {
+      List<String> allAhadeth = value.trim().split('#');
+      for (int i = 0; i < allAhadeth.length; i++) {
+        List<String> hadethLines = allAhadeth[i].trim().split('\n');
+        String title = hadethLines[0];
+        hadethLines.removeAt(0);
+        List<String> content = hadethLines;
 
-       HadethModel hadethModel = HadethModel(title, content);
-       ahadeth.add(hadethModel);
-       setState(() {
-
-       });
+        HadethModel hadethModel = HadethModel(title, content);
+        ahadeth.add(hadethModel);
+        setState(() {});
       }
-
-
-    }).catchError((error){});
-
- }
+    }).catchError((error) {});
+  }
 }
