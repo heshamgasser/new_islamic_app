@@ -47,8 +47,7 @@ class _HadeethTabState extends State<HadeethTab> {
                     return InkWell(
                       onTap: () {
                         Navigator.pushNamed(context, HadethScreen.routeName,
-                            arguments: HadethModel(
-                                ahadeth[index].title, ahadeth[index].content),);
+                            arguments: ahadeth[index]);
                       },
                       child: Text(
                         ahadeth[index].title,
@@ -74,17 +73,15 @@ class _HadeethTabState extends State<HadeethTab> {
   void loadHadethFile() {
     rootBundle.loadString('assets/files/ahadeth .txt').then((value) {
       List<String> allAhadeth = value.trim().split('#');
-      for (int i = 0; i < allAhadeth.length; i++){
+      for (int i = 0; i < allAhadeth.length; i++) {
         int lastIndexOfFirstLine = allAhadeth[i].trim().indexOf('\n');
-        String title = allAhadeth[i].trim().substring(0,lastIndexOfFirstLine);
-        String content = allAhadeth[i].trim().substring(lastIndexOfFirstLine+1);
+        String title = allAhadeth[i].trim().substring(0, lastIndexOfFirstLine);
+        String content =
+            allAhadeth[i].trim().substring(lastIndexOfFirstLine + 1);
         HadethModel hadethModel = HadethModel(title, content);
         ahadeth.add(hadethModel);
         setState(() {});
       }
-
-
-
 
       // for (int i = 0; i < allAhadeth.length; i++) {
       //   List<String> hadethLines = allAhadeth[i].trim().split('\n');
@@ -95,6 +92,6 @@ class _HadeethTabState extends State<HadeethTab> {
       //       ahadeth.add(hadethModel);
       //       setState(() {});
       //     }
-        }).catchError((error) {});
-      }
+    }).catchError((error) {});
+  }
 }
