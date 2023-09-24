@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islamic/widgets/setting_Bottom_sheet.dart';
 import 'package:islamic/widgets/setting_body_widget.dart';
 
 class SettingTab extends StatelessWidget {
