@@ -32,8 +32,6 @@ class HadethScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Divider(
-                      thickness: 3,
-                      color: Theme.of(context).primaryColor,
                       indent: 30.w,
                       endIndent: 30.w,
                     ),

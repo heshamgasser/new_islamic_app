@@ -52,7 +52,7 @@ class _SurahScreenState extends State<SurahScreen> {
                       SizedBox(width: 30.w),
                       IconButton(onPressed: () {
 
-                      }, icon: Icon(Icons.play_circle, color: Colors.black , size: 30.r,),),
+                      }, icon: Icon(Icons.play_circle, color: Theme.of(context).colorScheme.brightness == Brightness.light ? Colors.black : AppColors.yellowColor , size: 30.r,),),
                     ],
                   ),
                   Divider(thickness: 3,indent: 30.w, endIndent: 30.w,),
