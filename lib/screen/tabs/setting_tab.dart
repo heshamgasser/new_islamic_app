@@ -24,7 +24,9 @@ class SettingTab extends StatelessWidget {
             ),
             SettingBodyWidget(
               header: AppLocalizations.of(context)!.language,
-              text: AppLocalizations.of(context)!.english,
+              text: pro.languageCode == 'en'
+                  ? AppLocalizations.of(context)!.english
+                  : AppLocalizations.of(context)!.arabic,
               optionOne: AppLocalizations.of(context)!.english,
               optionTwo: AppLocalizations.of(context)!.arabic,
               optionOneFunction: () {
@@ -48,7 +50,9 @@ class SettingTab extends StatelessWidget {
             ),
             SettingBodyWidget(
               header: AppLocalizations.of(context)!.theme,
-              text: AppLocalizations.of(context)!.lightTheme,
+              text: pro.appThemeMode == ThemeMode.light
+                  ? AppLocalizations.of(context)!.lightTheme
+                  : AppLocalizations.of(context)!.darkTheme,
               optionOne: AppLocalizations.of(context)!.lightTheme,
               optionTwo: AppLocalizations.of(context)!.darkTheme,
               optionOneFunction: () {
