@@ -6,12 +6,22 @@ class SettingBodyWidget extends StatelessWidget {
   String text;
   String optionOne;
   String optionTwo;
+  bool selector;
+  Function optionOneFunction;
+  Function optionTwoFunction;
+  Function optionOneSelectionFunction;
+  Function optionTwoSelectionFunction;
 
   SettingBodyWidget(
       {required this.header,
       required this.text,
       required this.optionOne,
-      required this.optionTwo});
+      required this.optionTwo,
+      required this.selector,
+      required this.optionOneFunction,
+      required this.optionTwoFunction,
+      required this.optionOneSelectionFunction,
+      required this.optionTwoSelectionFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -42,32 +52,70 @@ class SettingBodyWidget extends StatelessWidget {
                     endIndent: 40.w,
                   ),
                   SizedBox(height: 15.h),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: Text(
-                        optionOne,
-                        style: Theme.of(context).textTheme.titleMedium,
-                      )),
-                      Icon(
-                        Icons.done,
-                        size: 30.r,
-                      )
-                    ],
+                  InkWell(
+                    onTap: () {
+                      optionOneFunction();
+                      optionOneSelectionFunction();
+                      Navigator.pop(context);
+                    },
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Text(
+                          optionOne,
+                          style: selector
+                              ? Theme.of(context).textTheme.titleSmall
+                              : Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary),
+                        )),
+                        Visibility(
+                          visible: selector,
+                          child: Icon(
+                            Icons.done,
+                            size: 30.r,
+                            color: Theme.of(context).colorScheme.onPrimary
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(height: 20.h),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: Text(
-                        optionTwo,
-                        style: Theme.of(context).textTheme.titleMedium,
-                      )),
-                      Icon(
-                        Icons.done,
-                        size: 30.r,
-                      )
-                    ],
+                  InkWell(
+                    onTap: () {
+                      optionTwoFunction();
+                      optionTwoSelectionFunction();
+                      Navigator.pop(context);
+                    },
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Text(
+                          optionTwo,
+                          style: !selector
+                              ? Theme.of(context).textTheme.titleSmall
+                              : Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary),
+                        )),
+                        Visibility(
+                          visible: !selector,
+                          child: Icon(
+                            Icons.done,
+                            size: 30.r,
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),

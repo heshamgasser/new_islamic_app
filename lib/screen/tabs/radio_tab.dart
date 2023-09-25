@@ -25,7 +25,9 @@ class RadioTab extends StatelessWidget {
                   child: SizedBox(
                     width: 15.w,
                     height: 25.h,
-                    child: Image.asset('assets/image/previous.png',),
+                    child: Image.asset(
+                      'assets/image/previous.png',
+                    ),
                   ),
                 ),
                 Expanded(

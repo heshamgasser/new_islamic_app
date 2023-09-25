@@ -9,7 +9,6 @@ class AppTheme {
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
     primaryColor: AppColors.lightPrimaryColor,
-
     colorScheme: ColorScheme(
         brightness: Brightness.light,
         primary: Colors.black,
@@ -22,7 +21,6 @@ class AppTheme {
         onBackground: Colors.white,
         surface: Colors.black,
         onSurface: Colors.white),
-
     secondaryHeaderColor: AppColors.lightPrimaryColor,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -50,6 +48,10 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),
+      titleSmall: GoogleFonts.elMessiri(
+          fontSize: 25.sp,
+          fontWeight: FontWeight.w500,
+          color: AppColors.lightPrimaryColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.shifting,
@@ -69,7 +71,6 @@ class AppTheme {
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
     primaryColor: AppColors.darkPrimaryColor,
-
     colorScheme: ColorScheme(
         brightness: Brightness.dark,
         primary: Colors.white,
@@ -82,7 +83,6 @@ class AppTheme {
         onBackground: Colors.white,
         surface: Colors.black,
         onSurface: Colors.white),
-
     secondaryHeaderColor: AppColors.yellowColor,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -113,6 +113,10 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: AppColors.yellowColor,
       ),
+      titleSmall: GoogleFonts.elMessiri(
+          fontSize: 25.sp,
+          fontWeight: FontWeight.w500,
+          color: AppColors.yellowColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.shifting,

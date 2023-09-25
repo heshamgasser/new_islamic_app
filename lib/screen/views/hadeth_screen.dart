@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islamic/models/hadeth_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethScreen extends StatelessWidget {
   static const String routeName = 'Hadeth Screen';
@@ -11,11 +12,16 @@ class HadethScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(Theme.of(context).colorScheme.brightness == Brightness.light ? 'assets/image/background.png' : 'assets/image/dark_bg.png'), fit: BoxFit.fill),
+            image: AssetImage(
+                Theme.of(context).colorScheme.brightness == Brightness.light
+                    ? 'assets/image/background.png'
+                    : 'assets/image/dark_bg.png'),
+            fit: BoxFit.fill),
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Islami', style: Theme.of(context).textTheme.titleLarge),
+          title: Text(AppLocalizations.of(context)!.islami,
+              style: Theme.of(context).textTheme.titleLarge),
         ),
         body: args.content.isEmpty
             ? Center(
@@ -46,8 +52,6 @@ class HadethScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    
-                   
 
                     // Expanded(
                     //   child: ListView.builder(

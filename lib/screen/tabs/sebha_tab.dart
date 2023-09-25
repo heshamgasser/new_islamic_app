@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -22,53 +23,54 @@ class _SebhaTabState extends State<SebhaTab> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: 80.h,bottom: 16.h, right: 16.w, left: 16.w),
+        padding:
+            EdgeInsets.only(top: 80.h, bottom: 16.h, right: 16.w, left: 16.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.topCenter,
-              children: [
-                InkWell(
-                  onTap: () {
-                    sebhaCount++;
-                    counter();
-                   angle = angle + (180/33);
-                    setState(() {});
-                  },
-                  child: Transform.rotate(
-                    angle: angle,
-                    child: SizedBox(
-                      width: 232.w,
-                      height: 234.h,
-                      child: Image.asset('assets/image/body of seb7a.png'),
+            Expanded(
+              child: Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.topCenter,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      sebhaCount++;
+                      counter();
+                      angle = angle + (180 / 33);
+                      setState(() {});
+                    },
+                    child: Transform.rotate(
+                      angle: angle,
+                      child: SizedBox(
+                        width: 232.w,
+                        height: 234.h,
+                        child: Image.asset('assets/image/body of seb7a.png'),
+                      ),
                     ),
                   ),
-                ),
-                Positioned(
-                  top: -75.h,
-                  child: SizedBox(
-                      width: 73.w,
-                      height: 105.h,
-                      child: Image.asset('assets/image/head of seb7a.png')),
-                ),
-              ],
+                  Positioned(
+                    top: -75.h,
+                    child: SizedBox(
+                        width: 73.w,
+                        height: 105.h,
+                        child: Image.asset('assets/image/head of seb7a.png')),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(
-              height: 40.h,
+            Expanded(
+              child: Center(
+                  child: Text(
+                AppLocalizations.of(context)!.sebhaCount,
+                style: Theme.of(context).textTheme.titleMedium,
+              )),
             ),
-            Center(
-                child: Text(
-              'Sebha Count',
-              style: Theme.of(context).textTheme.titleMedium,
-            )),
-            SizedBox(height: 35.h),
             InkWell(
               onTap: () {
                 sebhaCount++;
                 counter();
-                angle = angle + (180/33);
+                angle = angle + (180 / 33);
                 setState(() {});
               },
               child: Container(
@@ -106,6 +108,26 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ),
             SizedBox(height: 22.h),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.brown,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                ),
+                onPressed: () {
+                  reset();
+                  setState(() {});
+                },
+                child: Text(
+                  AppLocalizations.of(context)!.reset,
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
+              ),
+            ),
+            SizedBox(height: 22.h),
             Row(
               children: [
                 Expanded(
@@ -118,7 +140,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'Add',
+                      AppLocalizations.of(context)!.add,
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
                   ),
@@ -136,28 +158,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'Remove',
-                      style: Theme.of(context).textTheme.displayMedium,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 15.w,
-                ),
-                Expanded(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purpleAccent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.r),
-                      ),
-                    ),
-                    onPressed: () {
-                      reset();
-                      setState(() {});
-                    },
-                    child: Text(
-                      'Reset',
+                      AppLocalizations.of(context)!.remove,
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
                   ),

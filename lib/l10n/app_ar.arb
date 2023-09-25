@@ -1,0 +1,21 @@
+{
+  "islami": "إسلامي",
+  "surahName": "إسم السورة",
+  "ayatNumber": "عدد الآيات",
+  "quraan": "قرآن",
+  "hadeth": "أحاديث",
+  "sebha": "سبحة",
+  "add": "إضافة",
+  "remove": "حذف",
+  "reset": "إعادة ضبط",
+  "sebhaCount": "عدد التسبيح",
+  "radio": "راديو",
+  "setting": "الإعدادات",
+  "language": "اللغة",
+  "english": "اللغة الإنجليزية",
+  "arabic": "اللغة العربية",
+  "theme": "النمط",
+  "lightTheme": "النمط النهاري",
+  "darkTheme": "النمط الليلي"
+
+}

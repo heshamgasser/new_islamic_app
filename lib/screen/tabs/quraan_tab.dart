@@ -4,6 +4,7 @@ import 'package:islamic/app_text_file/app_text_files.dart';
 import 'package:islamic/models/surah_arrgument.dart';
 import 'package:islamic/screen/views/surah_screen.dart';
 import 'package:islamic/widgets/table_header.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuraanTab extends StatelessWidget {
   const QuraanTab({super.key});
@@ -17,27 +18,21 @@ class QuraanTab extends StatelessWidget {
             width: 205.w,
             height: 227.h,
             child: Image.asset('assets/image/quran_image.png')),
-        Divider(
-
-
-        ),
+        Divider(),
         Row(
           children: [
-            TableHeader('Surah Name'),
+            TableHeader(AppLocalizations.of(context)!.surahName),
             SizedBox(
               height: 47.h,
               child: VerticalDivider(
                 indent: 0,
                 endIndent: 0,
-
               ),
             ),
-            TableHeader('Ayat Number'),
+            TableHeader(AppLocalizations.of(context)!.ayatNumber),
           ],
         ),
-        Divider(
-
-        ),
+        Divider(),
         Expanded(
           child: ListView.separated(
               itemBuilder: (context, index) {
@@ -73,9 +68,7 @@ class QuraanTab extends StatelessWidget {
                 );
               },
               separatorBuilder: (context, index) {
-                return Divider(
-
-                );
+                return Divider();
               },
               itemCount: AppTextFiles.surahNames.length),
         )
