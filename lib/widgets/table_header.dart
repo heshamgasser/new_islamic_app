@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class TableHeader extends StatelessWidget {
   String text;
 
-
   TableHeader(this.text);
 
   @override

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islamic/provider/setting_provider.dart';
 import 'package:islamic/screen/views/hadeth_screen.dart';
 import 'package:islamic/screen/home_screen.dart';
 import 'package:islamic/screen/views/surah_screen.dart';
 import 'package:islamic/style/app_theme.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 
 void main() {
-  runApp(Islamic());
+  runApp(ChangeNotifierProvider(
+      create: (context) => SettingProvider(),
+      child: Islamic()));
 }
 
 class Islamic extends StatelessWidget {
@@ -15,6 +22,7 @@ class Islamic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appProvider = Provider.of<SettingProvider>(context);
     return ScreenUtilInit(
       designSize: const Size(412, 870),
       builder: (context, child) {
@@ -28,6 +36,20 @@ class Islamic extends StatelessWidget {
           },
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
+          themeMode: appProvider.appThemeMode,
+          localizationsDelegates: [
+            AppLocalizations.delegate, // Add this line
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: [
+            Locale('en'), // English
+            Locale('ar'), // Spanish
+          ],
+          
+          locale: Locale(appProvider.languageCode),
+
         );
       },
     );

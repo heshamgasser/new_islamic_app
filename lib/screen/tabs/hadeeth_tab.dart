@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamic/models/hadeth_model.dart';
 import 'package:islamic/screen/views/hadeth_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadeethTab extends StatefulWidget {
   @override
@@ -22,18 +23,14 @@ class _HadeethTabState extends State<HadeethTab> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Image.asset('assets/image/hadeeth_image.png'),
-          Divider(
-
-          ),
+          Divider(),
           Center(
             child: Text(
-              'Hadeeth',
+              AppLocalizations.of(context)!.hadeth,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-          Divider(
-
-          ),
+          Divider(),
           Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) {
@@ -50,9 +47,7 @@ class _HadeethTabState extends State<HadeethTab> {
                   );
                 },
                 separatorBuilder: (context, index) {
-                  return Divider(
-
-                  );
+                  return Divider();
                 },
                 itemCount: ahadeth.length),
           ),

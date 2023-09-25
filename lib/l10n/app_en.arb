@@ -1,0 +1,21 @@
+{
+  "islami": "Islami",
+  "surahName": "Surah Name",
+  "ayatNumber": "Ayat Number",
+  "quraan": "Quraan",
+  "hadeth": "Ahadeth",
+  "sebha": "Sebha",
+  "add": "Add",
+  "remove": "Remove",
+  "reset": "Reset",
+  "sebhaCount": "Sebha Count",
+  "radio": "Radio",
+  "setting": "Setting",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "theme": "Theme",
+  "lightTheme": "Light Theme",
+  "darkTheme": "Dark Theme"
+
+}
