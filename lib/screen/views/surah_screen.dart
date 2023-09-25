@@ -25,7 +25,7 @@ class _SurahScreenState extends State<SurahScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/image/background.png'), fit: BoxFit.fill),
+            image: AssetImage(Theme.of(context).colorScheme.brightness == Brightness.light ? 'assets/image/background.png' : 'assets/image/dark_bg.png'), fit: BoxFit.fill),
       ),
       child: Scaffold(
         appBar: AppBar(
