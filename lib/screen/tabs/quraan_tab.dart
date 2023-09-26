@@ -1,38 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islamic/app_text_file/app_text_files.dart';
 import 'package:islamic/models/surah_arrgument.dart';
+import 'package:islamic/provider/setting_provider.dart';
 import 'package:islamic/screen/views/surah_screen.dart';
-import 'package:islamic/widgets/table_header.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class QuraanTab extends StatelessWidget {
   const QuraanTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var quranProvider = Provider.of<SettingProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
-            width: 205.w,
-            height: 227.h,
-            child: Image.asset('assets/image/quran_image.png')),
-        Divider(),
-        Row(
+          width: 205.w,
+          height: 227.h,
+          child: Image.asset('assets/image/quran_image.png'),
+        ),
+        SizedBox(height: 15.h),
+        Table(
+          border: TableBorder(
+            top: BorderSide(
+                color: Theme.of(context).colorScheme.onSecondary, width: 3.r),
+            bottom: BorderSide(
+                color: Theme.of(context).colorScheme.onSecondary, width: 3.r),
+            verticalInside: BorderSide(
+                color: Theme.of(context).colorScheme.onSecondary, width: 3.r),
+          ),
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
           children: [
-            TableHeader(AppLocalizations.of(context)!.surahName),
-            SizedBox(
-              height: 47.h,
-              child: VerticalDivider(
-                indent: 0,
-                endIndent: 0,
+            TableRow(children: [
+              Center(
+                child: Text(
+                  AppLocalizations.of(context)!.surahName,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
               ),
-            ),
-            TableHeader(AppLocalizations.of(context)!.ayatNumber),
+              Center(
+                child: Text(
+                  AppLocalizations.of(context)!.ayatNumber,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+            ]),
           ],
         ),
-        Divider(),
         Expanded(
           child: ListView.separated(
               itemBuilder: (context, index) {

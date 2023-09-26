@@ -9,7 +9,7 @@ class SettingProvider extends ChangeNotifier {
     appThemeMode = themeMode;
     notifyListeners();
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('theme', themeMode == ThemeMode.light ? 'light' : 'dark');
+    prefs.setString('theme', appThemeMode == ThemeMode.light ? 'light' : 'dark');
   }
 
   String languageCode = 'en';
@@ -19,7 +19,7 @@ class SettingProvider extends ChangeNotifier {
     languageCode = language;
     notifyListeners();
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('language', language);
+    prefs.setString('language', languageCode);
   }
 
   void getSharedPreferences () async{
@@ -31,17 +31,22 @@ class SettingProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool languageSelector = true;
 
-  void changeLanguageSelector() {
-    languageSelector = !languageSelector;
+  void changeState (){
     notifyListeners();
   }
 
-  bool themeSelector = true;
-
-  void changeThemeSelector() {
-    themeSelector = !themeSelector;
-    notifyListeners();
-  }
+  // bool languageSelector = true;
+  //
+  // void changeLanguageSelector() {
+  //   languageSelector = !languageSelector;
+  //   notifyListeners();
+  // }
+  //
+  // bool themeSelector = true;
+  //
+  // void changeThemeSelector() {
+  //   themeSelector = !themeSelector;
+  //   notifyListeners();
+  // }
 }

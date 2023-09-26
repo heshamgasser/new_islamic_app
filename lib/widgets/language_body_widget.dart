@@ -1,30 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/provider/setting_provider.dart';
+import 'package:provider/provider.dart';
 
-class SettingBodyWidget extends StatelessWidget {
-  String header;
-  String text;
-  String optionOne;
-  String optionTwo;
-  bool selector;
-  Function optionOneFunction;
-  Function optionTwoFunction;
-  Function optionOneSelectionFunction;
-  Function optionTwoSelectionFunction;
+class LanguageBodyWidget extends StatelessWidget {
 
-  SettingBodyWidget(
-      {required this.header,
-      required this.text,
-      required this.optionOne,
-      required this.optionTwo,
-      required this.selector,
-      required this.optionOneFunction,
-      required this.optionTwoFunction,
-      required this.optionOneSelectionFunction,
-      required this.optionTwoSelectionFunction});
 
   @override
   Widget build(BuildContext context) {
+
+    var languageProvider = Provider.of<SettingProvider>(context);
+
     return InkWell(
       onTap: () {
         showModalBottomSheet(
@@ -43,7 +30,7 @@ class SettingBodyWidget extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      header,
+                      AppLocalizations.of(context)!.language,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
@@ -54,27 +41,26 @@ class SettingBodyWidget extends StatelessWidget {
                   SizedBox(height: 15.h),
                   InkWell(
                     onTap: () {
-                      optionOneFunction();
-                      optionOneSelectionFunction();
+                      languageProvider.changeLanguage('en');
                       Navigator.pop(context);
                     },
                     child: Row(
                       children: [
-                        Expanded(
-                            child: Text(
-                          optionOne,
-                          style: selector
-                              ? Theme.of(context).textTheme.titleSmall
-                              : Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .primary),
-                        )),
+                        Text(
+                          AppLocalizations.of(context)!.english,
+                          style: languageProvider.languageCode == 'en'
+                          ? Theme.of(context).textTheme.titleSmall
+                          : Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary),
+                        ),
+                        Spacer(),
                         Visibility(
-                          visible: selector,
+                          visible: languageProvider.languageCode == 'en' ? true : false,
                           child: Icon(
                             Icons.done,
                             size: 30.r,
@@ -87,27 +73,26 @@ class SettingBodyWidget extends StatelessWidget {
                   SizedBox(height: 20.h),
                   InkWell(
                     onTap: () {
-                      optionTwoFunction();
-                      optionTwoSelectionFunction();
+                      languageProvider.changeLanguage('ar');
                       Navigator.pop(context);
                     },
                     child: Row(
                       children: [
-                        Expanded(
-                            child: Text(
-                          optionTwo,
-                          style: !selector
+                        Text(
+                          AppLocalizations.of(context)!.arabic,
+                          style: languageProvider.languageCode == 'ar'
                               ? Theme.of(context).textTheme.titleSmall
                               : Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .primary),
-                        )),
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .primary),
+                        ),
+                        Spacer(),
                         Visibility(
-                          visible: !selector,
+                          visible: languageProvider.languageCode == 'ar' ? true : false,
                           child: Icon(
                             Icons.done,
                             size: 30.r,
@@ -131,7 +116,7 @@ class SettingBodyWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.r),
             border: Border.all(color: Theme.of(context).secondaryHeaderColor)),
         child: Text(
-          text,
+          languageProvider.languageCode == 'en' ? AppLocalizations.of(context)!.english : AppLocalizations.of(context)!.arabic,
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
