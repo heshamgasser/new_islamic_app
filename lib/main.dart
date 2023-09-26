@@ -8,6 +8,7 @@ import 'package:islamic/screen/views/surah_screen.dart';
 import 'package:islamic/style/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -18,11 +19,12 @@ void main() {
 }
 
 class Islamic extends StatelessWidget {
-  const Islamic({super.key});
+  // late SettingProvider appProvider;
 
   @override
   Widget build(BuildContext context) {
     var appProvider = Provider.of<SettingProvider>(context);
+    appProvider.getSharedPreferences();
     return ScreenUtilInit(
       designSize: const Size(412, 870),
       builder: (context, child) {
@@ -54,4 +56,8 @@ class Islamic extends StatelessWidget {
       },
     );
   }
+
+
+
+
 }
