@@ -24,60 +24,12 @@ class SettingTab extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             LanguageBodyWidget(),
-
-
-
-
-            // LanguageBodyWidget(
-            //   header: AppLocalizations.of(context)!.language,
-            //   text: pro.languageCode == 'en'
-            //       ? AppLocalizations.of(context)!.english
-            //       : AppLocalizations.of(context)!.arabic,
-            //   optionOne: AppLocalizations.of(context)!.english,
-            //   optionTwo: AppLocalizations.of(context)!.arabic,
-            //   optionOneFunction: () {
-            //     pro.changeLanguage('en');
-            //   },
-            //   optionTwoFunction: () {
-            //     pro.changeLanguage('ar');
-            //   },
-            //   selector: pro.languageSelector,
-            //   optionOneSelectionFunction: () {
-            //     pro.changeLanguageSelector();
-            //   },
-            //   optionTwoSelectionFunction: () {
-            //     pro.changeLanguageSelector();
-            //   },
-            // ),
             SizedBox(height: 10.h),
             Text(
               AppLocalizations.of(context)!.theme,
               style: Theme.of(context).textTheme.titleLarge,
             ),
-
             ThemeBodyWidget(),
-
-            // LanguageBodyWidget(
-            //   header: AppLocalizations.of(context)!.theme,
-            //   text: pro.appThemeMode == ThemeMode.light
-            //       ? AppLocalizations.of(context)!.lightTheme
-            //       : AppLocalizations.of(context)!.darkTheme,
-            //   optionOne: AppLocalizations.of(context)!.lightTheme,
-            //   optionTwo: AppLocalizations.of(context)!.darkTheme,
-            //   optionOneFunction: () {
-            //     pro.changeTheme(ThemeMode.light);
-            //   },
-            //   optionTwoFunction: () {
-            //     pro.changeTheme(ThemeMode.dark);
-            //   },
-            //   selector: pro.themeSelector,
-            //   optionOneSelectionFunction: () {
-            //     pro.changeThemeSelector();
-            //   },
-            //   optionTwoSelectionFunction: () {
-            //     pro.changeThemeSelector();
-            //   },
-            // ),
           ],
         ),
       ),
